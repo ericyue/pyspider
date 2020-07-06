@@ -63,7 +63,10 @@ class ResultDB(SplitTableMixin, BaseResultDB):
                 data[key] = utils.text(value)
         if 'result' in data:
             if data['result']:
-                data['result'] = json.loads(data['result'])
+                try:
+                    data['result'] = json.loads(data['result'])
+                except:
+                    data['result'] = json.loads(data['result'].tobytes())
             else:
                 data['result'] = {}
         return data
