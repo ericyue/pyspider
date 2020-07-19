@@ -19,6 +19,7 @@ from pyspider.database.base.taskdb import TaskDB as BaseTaskDB
 from .sqlalchemybase import SplitTableMixin, result2dict
 
 
+
 class TaskDB(SplitTableMixin, BaseTaskDB):
     __tablename__ = ''
 
