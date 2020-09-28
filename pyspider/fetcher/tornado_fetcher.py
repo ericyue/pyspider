@@ -132,8 +132,8 @@ class Fetcher(object):
             if url.startswith('data:'):
                 type = 'data'
                 result = yield gen.maybe_future(self.data_fetch(url, task))
-            elif task.get('fetch', {}).get('fetch_type') in ('___js_', '____phantomjs'):
-            #elif task.get('fetch', {}).get('fetch_type') in ('js', 'phantomjs'):
+            #elif task.get('fetch', {}).get('fetch_type') in ('___js_', '____phantomjs'):
+            elif task.get('fetch', {}).get('fetch_type') in ('js', 'phantomjs'):
                 type = 'phantomjs'
                 result = yield self.phantomjs_fetch(url, task)
             elif task.get('fetch', {}).get('fetch_type') in ('splash', ):
